@@ -7,11 +7,14 @@
 <h3 class="text-center"> Profile </h3>
 
 <div class="row">
-    <div class="col-10  mx-auto">
-        <p class="about-me text-center">
-            {{user.username}} || {{user.email}}
-        </p>
-       
+    <div class="col-8  mx-auto">
+        <div class="media text-center">
+            <img src="{{user.profile.image.url}}" alt="" class="rounded-circle account-img">
+            <div class="media-body">
+                <h2 class="account-heading">{{user.username}}</h2>
+                <p class="text-secondary">{{user.email}}</p>
+            </div>
+        </div>      
     </div> 
 </div>
 

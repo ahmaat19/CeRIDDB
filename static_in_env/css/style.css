@@ -112,3 +112,6 @@ table {
   p {
       color: white;
   }
+  .account-img {
+      height: 110px;
+  }
