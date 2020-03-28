@@ -1,0 +1,108 @@
+{% extends 'base.html' %} 
+{% load crispy_forms_tags %}
+{% load static %}
+{% load dashboard_t_tag %}
+{% block title %} Projects {% endblock %}
+{% block content %}
+
+
+{% if messages %}
+<ul class="messages text-center">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+<div class="row">
+    <div class="col-10 mx-auto">
+        <form class="form my-2 my-lg-0" action="/projects/" method="GET" name="q">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search by Project Name" aria-label="Search"
+                name="q" value="{{ request.GET.q}}">
+        </form>
+        <hr>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-10 mx-auto">
+        <table class="table table-hover text-warning">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Project Title</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% if not queryset %}
+                {% for project in projects %}
+                <tr>
+                    <td> {{ forloop.counter }} </td>
+                    <td> {{ project.title }} </td>
+                    <td> 
+                        <a href="{% url 'dashboard:project_detail' project.pk %}" target="_blank" class="btn btn-info btn-sm"
+                            data-toggle="tooltip" title="Project Details">
+                            <span class="fa fa-eye"></span>
+                        </a>
+                        <a href="{% url 'dashboard:project_update' project.pk %}" name="view"
+                            class="btn btn-success btn-sm"> <span class="fa fa-edit"></span>
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+                {% endif %}
+
+                {% for project in queryset %}
+                <tr>
+                    <td> {{ forloop.counter }} </td>
+                    <td> {{ project.title }} </td>
+                    <td> 
+                        <a href="{% url 'dashboard:project_detail' project.pk %}" target="_blank" class="btn btn-info btn-sm"
+                            data-toggle="tooltip" title="Project Details">
+                            <span class="fa fa-eye"></span>
+                        </a>
+                        <a href="{% url 'dashboard:project_update' project.pk %}" name="view"
+                            class="btn btn-success btn-sm"> <span class="fa fa-edit"></span>
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+          </table>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-10 mx-auto">
+        <div aria-label="Page navigation example">
+            <ul class="pagination">
+
+                {% if projects.has_previous %}
+                <li class="page-item"><a href="?page=1" class="page-link"><i class="fa fa-angle-double-left"></i></a>
+                </li>
+                <li class="page-item"><a href="?page={{ projects.previous_page_number }}" class="page-link"><i
+                            class="fa fa-angle-right"></i></a>
+                </li>
+                {% endif %}
+
+                <li class="page-item"><a href="#" class="current page-link">
+                        Page {{ projects.number }} of {{ projects.paginator.num_pages }}.
+                    </a></li>
+
+                {% if projects.has_next %}
+                <li class="page-item"><a href="?page={{ projects.next_page_number }}" class="page-link"><i
+                            class="fa fa-angle-right"></i></a>
+                </li>
+                <li class="page-item"><a href="?page={{ projects.paginator.num_pages }}" class="page-link"><i
+                            class="fa fa-angle-double-right"></i> </a>
+                </li>
+                {% endif %}
+
+            </ul>
+        </div>
+        <p class="text-right">Projects# {{ title }}: <b> {{ total }} </b></p>
+    </div>
+</div>
+
+{% endblock %}

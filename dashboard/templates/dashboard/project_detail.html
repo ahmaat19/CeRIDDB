@@ -1,0 +1,21 @@
+{% extends 'base.html' %} 
+{% load crispy_forms_tags %}
+{% load dashboard_t_tag %}
+{% load static %}
+{% block title %} Project Details {% endblock %}
+{% block content %}
+<h2 class="text-center">{{project.title}}</h2> <hr>
+<div class="row">
+    <div class="col-lg-9 col-md-8 col-sm-12 mx-auto">
+        <p>  <i class="fas fa-clock"></i> {{ project.starting_date }} - {{project.ending_date}} </p>
+        <p>  <i class="fas fa-donate"></i> {{ project.funding_agency }} </p>
+        <p>  <i class="fas fa-map-marker-alt"></i> {{ project.location }} </p>
+          <i class="fas fa-poll"></i> {{ project.direct_beneficiary|safe }} 
+           <i class="fas fa-project-diagram"></i> {{project.summary|safe}}
+        <p> <a href="{{project.documents.url}}" class="btn btn-success btn-sm"> <i class="fas fa-download"></i> Download Project Document</a> </p>     
+      
+    </div>
+</div>
+
+
+{% endblock %}

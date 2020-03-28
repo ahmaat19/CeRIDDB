@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %} Contact me {% endblock %}
+{% block content %}
+{% if messages %}
+<ul class="messages text-center">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% else %}
+
+<h3 class="text-center"> Contact </h3>
+
+<div class="row">
+    <div class="col-10  mx-auto pt-3">
+        <p class="about-me text-center">
+            Want to get in touch with me? Sure, no problem – just fill in the form below.
+            I’m currently offering free help via emails, so if you have some questions/problems – let me know about them. <br>
+            I check my email box twice a day so you should get a reply within 12-24 hours. If not, re-send your question.
+        </p>
+    </div> 
+</div>
+
+<div class="row">
+    <div class="col-lg-6 mx-auto pt-3">
+        <form action="." method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <input type="text" name="name" class="form-control" placeholder="Name" required>
+            </div>
+            <div class="form-group">
+                <input type="number" name="number" class="form-control" placeholder="Number" required>
+            </div>
+            <div class="form-group">
+                <input type="email" name="email" class="form-control" placeholder="Email">
+            </div>
+            <div class="form-group">
+                <textarea type="text" name="message" class="form-control" placeholder="Message here..." rows="10" required> </textarea>
+            </div>
+            <div class="form-group">
+            <button type="submit" class="btn btn-outline-info ">Send</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %} Profile {% endblock %}
+{% block content %}
+
+<h3 class="text-center"> Profile </h3>
+
+<div class="row">
+    <div class="col-10  mx-auto">
+        <p class="about-me text-center">
+            {{user.username}} || {{user.email}}
+        </p>
+       
+    </div> 
+</div>
+
+{% endblock %}

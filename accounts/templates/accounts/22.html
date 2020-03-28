@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %} {% if title %} {{ title }} {% endif %} {% endblock %}
+{% block content %}
+<h1 class="text-center"> {% if title %} {{ title }} {% endif %}</h1>
+<hr>
+<div class="row">
+    <div class="col-lg-4 col-md-4 col-sm-6 mx-auto">
+        <form action="." method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% for field in form %}
+
+            <div class="form-group">
+                <!-- <strong> <label for="{{ field.label }}">{{ field.label|title }}:</label> </strong> -->
+                {{ field }}
+                {% if field.errors %}
+                {% for error in field.errors %}
+                <p class="text-danger">{{ error|escape }}</p>
+                {% endfor %}
+                {% endif %}
+            </div>
+            {% endfor %}
+            <div class="form-group float-right">
+                <input type="submit" class="btn btn-primary" value=" {{ valueBtn }} ">
+            </div>
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
