@@ -103,15 +103,17 @@ table {
 .table-hover tbody tr:hover {
     color: #f7f7f8;
     background-color: rgba(0, 0, 0, 0.404);
-  }
-  .table-hover thead tr:hover {
+}
+.table-hover thead tr:hover {
     color: #f7f7f8;
     background-color:  rgba(0, 0, 0, 0.404);
-  }
+}
 
-  p {
+p {
       color: white;
-  }
-  .account-img {
-      height: 110px;
-  }
+}
+.circular {
+    border-bottom-left-radius: 50%;  
+    border-top-right-radius: 50%; 
+    height: 100px; 
+}

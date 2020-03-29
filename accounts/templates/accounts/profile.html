@@ -4,18 +4,35 @@
 {% block title %} Profile {% endblock %}
 {% block content %}
 
-<h3 class="text-center"> Profile </h3>
+<h3 class="text-center"> Profile Info </h3> <hr>
+
+<div class="text-center">
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <img src="{{user.profile.image.url}}" class="circular" alt="...">
+    <h4 class="text-warning mt-2">{{user.first_name}} {{user.last_name}}</h4>
+    <p class="text-warning">{{user.email}}</p>
+</div>
 
 <div class="row">
-    <div class="col-8  mx-auto">
-        <div class="media text-center">
-            <img src="{{user.profile.image.url}}" alt="" class="rounded-circle account-img">
-            <div class="media-body">
-                <h2 class="account-heading">{{user.username}}</h2>
-                <p class="text-secondary">{{user.email}}</p>
+    <div class="col-lg-5 col-md-8 col-sm-12 mx-auto">
+        <form action="." method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ u_form|crispy }}
+                {{ p_form|crispy }}
+            </div>      
+            <div class="form-group float-right">
+                <button class="btn btn-outline-info" type="submit">Update Profile</button>
             </div>
-        </div>      
-    </div> 
+        </form>
+    </div>
 </div>
+
 
 {% endblock %}

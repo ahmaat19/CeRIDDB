@@ -140,6 +140,11 @@
         <ul class="navbar-nav ml-auto">
             {% if user.is_authenticated %}
             <li class="nav-item">
+                <a class="nav-link" href="{% url 'password_change' %}" id="navbarDropdown">
+                    <span class="fa fa-unlock-alt"></span> Change Password
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="{% url 'profile' %}" id="navbarDropdown">
                     <span class="fa fa-user"></span> Profile
                 </a>
