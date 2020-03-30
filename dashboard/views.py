@@ -18,10 +18,11 @@ def HomeView(request):
 
 @login_required
 def ProjectView(request): 
-    
-   
+    if request.user.groups.all()[0].name in ['Admin', 'Executive Director', 'Project Manager']:
+        project_list = Project.objects.order_by('-id')
+    else:
+        project_list = Project.objects.filter(created_by=request.user.id).order_by('-id')
 
-    project_list = Project.objects.order_by('-id')
     paginator = Paginator(project_list, 10)  # Show 10 contacts per page
     page = request.GET.get('page')
     projects = paginator.get_page(page)
@@ -59,7 +60,10 @@ def ProjectCreateView(request):
 
 @login_required
 def ProjectUpdateView(request, pk):
-    project = get_object_or_404(Project, pk=pk)
+    if request.user.groups.all()[0].name in ['Admin', 'Executive Director', 'Project Manager']:
+        project = get_object_or_404(Project, pk=pk)
+    else:
+         project = get_object_or_404(Project, pk=pk, created_by=request.user.id)
     form = ProjectModelForm(request.POST or None, request.FILES or None, instance=project)
     if form.is_valid():
         obj = form.save(commit=False)
@@ -77,7 +81,10 @@ def ProjectUpdateView(request, pk):
 
 @login_required
 def ProjectDetailView(request, pk):
-    project = get_object_or_404(Project, pk=pk)
+    if request.user.groups.all()[0].name in ['Admin', 'Executive Director', 'Project Manager']:
+        project = get_object_or_404(Project, pk=pk)
+    else:
+        project = get_object_or_404(Project, pk=pk, created_by=request.user.id)
     context = {
         'title': 'Project Details',
         'project': project
