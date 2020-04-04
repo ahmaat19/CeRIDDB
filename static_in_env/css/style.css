@@ -1,10 +1,11 @@
 body { 
-    background-image: url(../images/backgroup.jpg);
+    /* background-image: url(../images/backgroup.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-    background-size: cover;
-    color: aliceblue;
+    background-size: cover; */
+    color:black;
+    background-color: #f7f7f8;
 }
 
 .navbar-brand {
@@ -27,7 +28,7 @@ li {
     background-color: transparent;
     border: 1px solid rgb(168, 115, 253);
     border-radius: 5px;
-    color: white;
+    
 }
 
 .form-control:focus {
@@ -36,11 +37,11 @@ li {
     border: 1px solid rgb(127, 233, 5);
     border-radius: 0px;
     background-color: transparent;
-    color: white;
+    
 }
 
 .form-control::placeholder {
-    color: rgb(169, 169, 173);
+    color: rgb(111, 111, 250);
     padding-left: 4px;
 }
 
@@ -71,7 +72,7 @@ h1 {
 }
 nav {
     color: wheat;
-    background-color: rgba(58, 59, 56, 0.884);
+    background-color: rgba(0, 0, 0, 0.884);
     top: 100px;
     border-bottom-left-radius: 38px;
     border-top-right-radius: 38px;
@@ -82,9 +83,6 @@ nav ul li a:hover {
     border-radius: 20px;;
 }
 
-table {
-    color: white;
-}
 .debug {
     color: rgb(250, 95, 116);
 }
@@ -110,10 +108,13 @@ table {
 }
 
 p {
-      color: white;
+      color: black;
 }
 .circular {
     border-bottom-left-radius: 50%;  
     border-top-right-radius: 50%; 
     height: 100px; 
+}
+p, h1, h2, h3, h4, h5, form-control {
+    color: black;
 }
