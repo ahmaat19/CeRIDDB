@@ -10,7 +10,7 @@ from ckeditor_uploader.widgets import CKEditorUploadingWidget
 class ProjectModelForm(forms.ModelForm):
     class Meta:
         model = Project
-        fields = ['title', 'starting_date', 'ending_date', 'funding_agency', 'location', 'summary', 'direct_beneficiary', 'documents', 'project_report', 'assessment_evaluation', 'audit']
+        fields = ['title', 'starting_date', 'ending_date', 'funding_agency', 'location', 'summary', 'direct_beneficiary', 'file1', 'file1', 'file2', 'file3', 'file4', 'file5', 'project_report', 'assessment_evaluation', 'audit']
 
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Project Title'}),
@@ -20,7 +20,8 @@ class ProjectModelForm(forms.ModelForm):
             'location': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Location'}),
             'summary': CKEditorWidget(),
             'direct_beneficiary': CKEditorWidget(),
-            # 'documents': forms.FileInput(attrs={'class': 'form-control-file', 'placeholder': 'Direct Beneficiaries'}),
+            # 'documents': forms.FileField(widget=forms.FileInput(attrs={'multiple': True})),
+            # 'documents': forms.FileInput(attrs={'class': 'form-control-file', 'multiple': True, 'placeholder': 'Direct Beneficiaries'}),
             # 'project_report': forms.Select(),
             'assessment_evaluation': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Assessment & Evaluation Report'}),
             'audit': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Audit'}),

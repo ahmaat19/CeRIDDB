@@ -13,7 +13,11 @@ class Project(models.Model):
     location = models.CharField(max_length=100)
     summary = RichTextUploadingField()
     direct_beneficiary = RichTextField()
-    documents = models.FileField(upload_to='documents')
+    file1 = models.FileField(upload_to='documents', blank=True, null=True)
+    file2 = models.FileField(upload_to='documents', blank=True, null=True)
+    file3 = models.FileField(upload_to='documents', blank=True, null=True)
+    file4 = models.FileField(upload_to='documents', blank=True, null=True)
+    file5 = models.FileField(upload_to='documents', blank=True, null=True)
     project_report_choices = [
         ('Monthly', 'Monthly'),
         ('Quarterly', 'Quarterly'),
