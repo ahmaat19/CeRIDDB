@@ -1,0 +1,120 @@
+body { 
+    /* background-image: url(../images/backgroup.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover; */
+    color:black;
+    background-color: #f7f7f8;
+}
+
+.navbar-brand {
+    font-family: Bermuda Script;
+}
+
+.errorlist {
+    color: red;
+}
+
+.errorlist,
+li {
+    list-style: none;
+    padding-left: 0px;
+}
+
+
+.form-control {
+    border: none;
+    background-color: transparent;
+    border: 1px solid rgb(168, 115, 253);
+    border-radius: 5px;
+    
+}
+
+.form-control:focus {
+    border: none;
+    box-shadow: none;
+    border: 1px solid rgb(127, 233, 5);
+    border-radius: 0px;
+    background-color: transparent;
+    
+}
+
+.form-control::placeholder {
+    color: rgb(111, 111, 250);
+    padding-left: 4px;
+}
+
+.textarea {
+    border: 1px solid rgb(168, 115, 253);
+    border-radius: 2px;
+}
+label {
+    font-weight: bold;
+}
+
+
+.logo{
+    width: 150px;
+    height: auto;
+    margin-left: 30%;
+    margin-right: 50%;
+}
+.profile-pic{
+    width: 150px;
+    height: auto;
+    border-radius: 100px;
+}
+
+h1 {
+    border: 1px solid rgb(253, 115, 150);
+    border-radius: 15px;
+}
+nav {
+    color: wheat;
+    background-color: rgba(0, 0, 0, 0.884);
+    top: 100px;
+    border-bottom-left-radius: 38px;
+    border-top-right-radius: 38px;
+}
+
+nav ul li a:hover {
+    background-color: rgba(26, 24, 24, 0.884);
+    border-radius: 20px;;
+}
+
+.debug {
+    color: rgb(250, 95, 116);
+}
+.info {
+    color: rgb(97, 43, 247);
+}
+.success {
+    color: rgb(17, 226, 80);
+}
+.warning {
+    color: rgb(221, 241, 36);
+}
+.error {
+    color: rgb(245, 11, 11);
+}
+.table-hover tbody tr:hover {
+    color: #f7f7f8;
+    background-color: rgba(0, 0, 0, 0.404);
+}
+.table-hover thead tr:hover {
+    color: #f7f7f8;
+    background-color:  rgba(0, 0, 0, 0.404);
+}
+
+p {
+      color: black;
+}
+.circular {
+    border-bottom-left-radius: 50%;  
+    border-top-right-radius: 50%; 
+    height: 100px; 
+}
+p, h1, h2, h3, h4, h5, form-control {
+    color: black;
+}

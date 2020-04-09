@@ -1,0 +1,50 @@
+{% extends 'base.html' %} 
+{% load crispy_forms_tags %}
+{% load dashboard_t_tag %}
+{% load static %}
+{% block title %} Project Details {% endblock %}
+{% block content %}
+<h2 class="text-center">{{project.title}}</h2> <hr>
+<div class="row">
+    <div class="col-lg-9 col-md-8 col-sm-12 mx-auto">
+        <p>  <i class="fas fa-clock"></i> {{ project.starting_date }} - {{project.ending_date}} </p>
+        <p>  <i class="fas fa-donate"></i> {{ project.funding_agency }} </p>
+        <p>  <i class="fas fa-map-marker-alt"></i> {{ project.location }} </p>
+          <i class="fas fa-poll"></i> {{ project.direct_beneficiary|safe }} 
+           <i class="fas fa-project-diagram"></i> {{project.summary|safe}}
+        
+           <div class="row">
+               <div class="col-2">
+                {% if project.file1 %}
+                <p> <a href="{{project.file1.url}}" class="btn btn-success btn-sm"> <i class="fas fa-download"></i> P. D. File 1</a> </p>     
+                {% endif %}
+               </div>
+               <div class="col-2">
+                {% if project.file2 %}
+                <p> <a href="{{project.file2.url}}" class="btn btn-success btn-sm"> <i class="fas fa-download"></i> P. D. File 2</a> </p>     
+                {% endif %}
+               </div>
+               <div class="col-2">
+                {% if project.file3 %}
+                <p> <a href="{{project.file3.url}}" class="btn btn-success btn-sm"> <i class="fas fa-download"></i> P. D. File 3</a> </p>     
+                {% endif %}
+               </div>
+               <div class="col-2">
+                {% if project.file4 %}
+                <p> <a href="{{project.file4.url}}" class="btn btn-success btn-sm"> <i class="fas fa-download"></i> P. D. File 4</a> </p>     
+                {% endif %}
+               </div>
+               <div class="col-2">
+                {% if project.file5 %}
+                <p> <a href="{{project.file5.url}}" class="btn btn-success btn-sm"> <i class="fas fa-download"></i> P. D. File 5</a> </p>     
+                {% endif %}
+               </div>
+           </div>
+        
+        
+      
+    </div>
+</div>
+
+
+{% endblock %}

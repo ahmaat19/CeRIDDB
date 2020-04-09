@@ -1,0 +1,58 @@
+{% extends 'base.html' %} 
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %} Login{% endblock %}
+{% block content %}
+<br> <hr>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+</ul>
+{% endif %}
+<hr>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-5">
+            <form action="." method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                    {{ form|crispy }}
+                </div>
+                {% if request.GET.next %}
+                <input type="hidden" name="next" value="{{ request.GET.next }}">
+                {% endif %}
+                <div class="form-group float-right">
+                    <button class="btn btn-outline-info" type="submit">Login</button>
+                </div> <br> <br>
+                <hr> 
+            </form>
+            <div class="form-group" > 
+                <a href="{% url 'password_reset' %}"> Forgotten Password </a> | or |
+                <a href=""> Register New Account </a>
+            </div>
+        </div>
+    
+        <div class="col-lg-5 mx-auto">   
+            <p class="text-center p-3">
+                <img src="{% static 'images/profile-pic.png'%}" alt="" class="img-fluid profile-pic">
+            </p> 
+            <p class="about-me">
+                Centre for Research and Integrated Development (CeRID) 
+                is a non-governmental organization that was founded in 2005.        
+                It is registered in Somalia and Kenya and has field operation offices in Mogadishu, 
+                Jubbaland and Southwest States of Somalia. 
+                CeRID has its headquarters in Belet-Hawa town bordering Mandera Kenya 
+                from where it provides programme and operational support to all offices.       
+            </p>
+          
+        </div>
+    </div>
+    <hr>
+       
+</div>
+
+
+
+{% endblock %}
