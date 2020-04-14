@@ -18,7 +18,7 @@ class ProjectModelForm(forms.ModelForm):
             'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Project Title'}),
             'starting_date': DateInput(attrs={'class': 'form-control', 'placeholder': 'Project Started Date'}),
             'ending_date': DateInput(attrs={'class': 'form-control', 'placeholder': 'Project Ended Date'}),
-            'funding_agency': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Funding Agency'}),
+            'funding_agency': forms.Select(attrs={'class': 'form-control', 'placeholder': 'Funding Agency'}),
             'location': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Location'}),
             'summary': CKEditorWidget(),
             'direct_beneficiary': CKEditorWidget(),

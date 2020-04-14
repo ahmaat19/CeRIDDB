@@ -8,11 +8,21 @@ import os
 
 
 # Create your models here.
+class NGO(models.Model):
+    name = models.CharField(max_length=100, unique=True)
+
+    def __str__(self):
+        return self.name
+    
+    class Meta:
+        verbose_name_plural = 'NGOs'
+    
+
 class Project(models.Model):
     title = models.CharField(max_length=100)
     starting_date = models.DateField()
     ending_date = models.DateField()
-    funding_agency = models.CharField(max_length=100)
+    funding_agency = models.ForeignKey(NGO, on_delete=models.CASCADE)
     location = models.CharField(max_length=100)
     summary = RichTextUploadingField()
     direct_beneficiary = RichTextField()
