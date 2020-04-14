@@ -25,7 +25,7 @@ class Project(models.Model):
         ('Monthly', 'Monthly'),
         ('Quarterly', 'Quarterly'),
         ('Annually', 'Annually'),
-        ('End Report', 'ER')
+        ('End Report', 'End Report')
     ]
     project_report = MultiSelectField(choices=project_report_choices)
     assessment_evaluation = models.TextField() 

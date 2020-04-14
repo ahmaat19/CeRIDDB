@@ -6,6 +6,8 @@ from django_select2.forms import Select2MultipleWidget
 from ckeditor.widgets import CKEditorWidget
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
+class DateInput(forms.DateInput):
+    input_type = 'date'
 
 class ProjectModelForm(forms.ModelForm):
     class Meta:
@@ -14,8 +16,8 @@ class ProjectModelForm(forms.ModelForm):
 
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Project Title'}),
-            'starting_date': forms.DateInput(attrs={'class': 'form-control', 'placeholder': 'Project Started Date'}),
-            'ending_date': forms.DateInput(attrs={'class': 'form-control', 'placeholder': 'Project Ended Date'}),
+            'starting_date': DateInput(attrs={'class': 'form-control', 'placeholder': 'Project Started Date'}),
+            'ending_date': DateInput(attrs={'class': 'form-control', 'placeholder': 'Project Ended Date'}),
             'funding_agency': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Funding Agency'}),
             'location': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Location'}),
             'summary': CKEditorWidget(),
