@@ -11,6 +11,11 @@ import os
 class NGO(models.Model):
     name = models.CharField(max_length=100, unique=True)
 
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    created_by = models.IntegerField()
+    updated_by = models.IntegerField(null=True, blank=True)
+
     def __str__(self):
         return self.name
     

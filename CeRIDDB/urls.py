@@ -19,6 +19,10 @@ from django.contrib import admin
 from django.urls import path, include
 from . import views
 
+admin.site.site_header = "Centre for Research & Integrated Development Database"
+admin.site.site_title = "CeRIDDB"
+admin.site.index_title = "CeRIDDB Administration"
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('ckeditor/', include('ckeditor_uploader.urls')),
