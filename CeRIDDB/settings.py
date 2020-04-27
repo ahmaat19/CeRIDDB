@@ -63,8 +63,8 @@ CKEDITOR_CONFIGS = {
             ['RemoveFormat', 'Source', 'FontColor']
         ],
         'extraPlugins': 'codesnippet',
-        'width': 800,
-        'height': 500,
+        'width': 'auto',
+        'height': 'auto',
     }
     
 }
@@ -103,15 +103,14 @@ WSGI_APPLICATION = 'CeRIDDB.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'CeRIDDB',
         'USER': os.environ.get('DB_USER'),
-        'PASSWORD': os.environ.get('DB_PASS'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
         'HOST': 'localhost',
-        'PORT': 5432
+        'PORT': 5433,
     }
 }
 
@@ -140,7 +139,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Africa/Mogadishu'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
@@ -151,9 +150,6 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
-
-
-
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
@@ -171,9 +167,8 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_USER = 'ahmaat19@gmail.com'
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'Ahmad <ahmaat19@gmail.com>'
-
