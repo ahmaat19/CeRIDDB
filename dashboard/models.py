@@ -88,57 +88,67 @@ def auto_delete_file_on_change(sender, instance, **kwargs):
     if not instance.pk:
         return False
 
-    # File1
-    try:
-        old_file1 = sender.objects.get(pk=instance.pk).file1
-    except sender.DoesNotExist:
-        return False
+    # # File1
+    old_file11 = sender.objects.get(pk=instance.pk).file1
+    if old_file11:
+        try:
+            old_file1 = sender.objects.get(pk=instance.pk).file1
+        except sender.DoesNotExist:
+            return False
 
-    new_file1 = instance.file1
-    if not old_file1 == new_file1:
-        if os.path.isfile(old_file1.path):
-            os.remove(old_file1.path)
+        new_file1 = instance.file1
+        if not old_file1 == new_file1:
+            if os.path.isfile(old_file1.path):
+                os.remove(old_file1.path)
     
     # File2
-    try:
-        old_file2 = sender.objects.get(pk=instance.pk).file2
-    except sender.DoesNotExist:
-        return False
+    old_file22 = sender.objects.get(pk=instance.pk).file2
+    if old_file22:
+        try:
+            old_file2 = sender.objects.get(pk=instance.pk).file2
+        except sender.DoesNotExist:
+            return False
 
-    new_file2 = instance.file2
-    if not old_file2 == new_file2:
-        if os.path.isfile(old_file2.path):
-            os.remove(old_file2.path)
-    
+        new_file2 = instance.file2
+        if not old_file2 == new_file2:
+            if os.path.isfile(old_file2.path):
+                os.remove(old_file2.path)
+        
     # File3
-    try:
-        old_file3 = sender.objects.get(pk=instance.pk).file3
-    except sender.DoesNotExist:
-        return False
+    old_file33 = sender.objects.get(pk=instance.pk).file3
+    if old_file33:
+        try:
+            old_file3 = sender.objects.get(pk=instance.pk).file3
+        except sender.DoesNotExist:
+            return False
 
-    new_file3 = instance.file3
-    if not old_file3 == new_file3:
-        if os.path.isfile(old_file3.path):
-            os.remove(old_file3.path)
+        new_file3 = instance.file3
+        if not old_file3 == new_file3:
+            if os.path.isfile(old_file3.path):
+                os.remove(old_file3.path)
     
     # File4
-    try:
-        old_file4 = sender.objects.get(pk=instance.pk).file4
-    except sender.DoesNotExist:
-        return False
+    old_file44 = sender.objects.get(pk=instance.pk).file4
+    if old_file44:
+        try:
+            old_file4 = sender.objects.get(pk=instance.pk).file4
+        except sender.DoesNotExist:
+            return False
 
-    new_file4 = instance.file4
-    if not old_file4 == new_file4:
-        if os.path.isfile(old_file4.path):
-            os.remove(old_file4.path)
+        new_file4 = instance.file4
+        if not old_file4 == new_file4:
+            if os.path.isfile(old_file4.path):
+                os.remove(old_file4.path)
     
     # File5
-    try:
-        old_file5 = sender.objects.get(pk=instance.pk).file5
-    except sender.DoesNotExist:
-        return False
+    old_file55 = sender.objects.get(pk=instance.pk).file5
+    if old_file55:
+        try:
+            old_file5 = sender.objects.get(pk=instance.pk).file5
+        except sender.DoesNotExist:
+            return False
 
-    new_file5 = instance.file5
-    if not old_file5 == new_file5:
-        if os.path.isfile(old_file5.path):
-            os.remove(old_file5.path)
+        new_file5 = instance.file5
+        if not old_file5 == new_file5:
+            if os.path.isfile(old_file5.path):
+                os.remove(old_file5.path)

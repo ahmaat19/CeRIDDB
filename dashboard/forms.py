@@ -20,7 +20,7 @@ class ProjectModelForm(forms.ModelForm):
             'ending_date': DateInput(attrs={'class': 'form-control', 'placeholder': 'Project Ended Date'}),
             'funding_agency': forms.Select(attrs={'class': 'form-control', 'placeholder': 'Funding Agency'}),
             'location': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Location'}),
-            'summary': CKEditorWidget(),
+            'summary': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Location'}),
             'direct_beneficiary': CKEditorWidget(),
             # 'documents': forms.FileField(widget=forms.FileInput(attrs={'multiple': True})),
             # 'documents': forms.FileInput(attrs={'class': 'form-control-file', 'multiple': True, 'placeholder': 'Direct Beneficiaries'}),

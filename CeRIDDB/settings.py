@@ -105,15 +105,10 @@ WSGI_APPLICATION = 'CeRIDDB.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'CeRIDDB',
-        'USER': os.environ.get('DB_USER'),
-        'PASSWORD': os.environ.get('DB_PASSWORD'),
-        'HOST': 'localhost',
-        'PORT': 5433,
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -154,9 +149,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static_in_env'),]
-VIEW_PATH = os.path.dirname(BASE_DIR)
-STATIC_ROOT = os.path.join(VIEW_PATH, 'static_root/')
-MEDIA_ROOT = os.path.join(VIEW_PATH, 'media_root')
+# VIEW_PATH = os.path.dirname(BASE_DIR)
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_root/')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media_root')
 CKEDITOR_UPLOAD_PATH = os.path.join(MEDIA_ROOT, 'ckeditor_uploads/')
 
 
