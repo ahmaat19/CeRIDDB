@@ -1,22 +1,23 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 {% load crispy_forms_tags %}
 {% load static %}
 {% block title %} {{ title }} {% endblock %}
 {% block content %}
 
-<h2 class="text-center">{{ title }}</h2> <hr>
+<h2 class="text-center">{{ title }}</h2>
+<hr>
 
 <div class="row">
     <div class="col-lg-9 col-md-8 col-sm-12 mx-auto">
         <form action="." method="POST" enctype="multipart/form-data">
             {% csrf_token %} {{form.media}}
             <div class="form-group">
-                {{ form.title }}                
+                {{ form.title }}
             </div>
             <div class="text-center form-group">
                 <label for="" class="text-center">Project Duration</label>
-            </div>    
-            <div class="row">            
+            </div>
+            <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-12 mx-auto">
                     <div class="form-group">
                         {{ form.starting_date }}
@@ -44,7 +45,7 @@
             </div>
             <div class="text-center form-group">
                 <label for="" class="text-center">Project Reports</label>
-            </div> 
+            </div>
             <div class="row">
                 {% for report in form.project_report %}
                 <div class="col-3 ">
@@ -70,10 +71,10 @@
             <div class="form-group float-right">
                 {% if valueBtn == 'Add' %}
                 <button type="submit" class="btn btn-success btn-sm" value=" {{ valueBtn }} "> <span
-                        class="fa fa-plus"></span> </button>
+                        class="fa fa-plus"></span> Create</button>
                 {% elif valueBtn == 'Update' %}
                 <button type="submit" class="btn btn-success btn-sm" value=" {{ valueBtn }} "> <span
-                        class="fa fa-edit"></span> </button>
+                        class="fa fa-edit"></span> Update</button>
                 <a href=" {% url 'dashboard:project' %} " class="btn btn-success btn-sm"> <span
                         class="fa fa-arrow-left"></span></a>
                 {% endif %}
@@ -86,4 +87,4 @@
         {% endfor %}
     </div>
 
-{% endblock %}
+    {% endblock %}
